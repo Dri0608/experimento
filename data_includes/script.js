@@ -4,17 +4,17 @@ Sequence("Participante", "Experimento", "Final");
 
 Header(
 
-  defaulText
+  defaultText
     .css("font-size","1.2en")
     .print()
   ,
 
-defaulTextInput
+defaultTextInput
     .css("font-size","1.2en")
     .print()
   ,
 
-defaulButton
+defaultButton
     .css("font-size","1.2en")
     .print()
     .center()
@@ -22,7 +22,7 @@ defaulButton
 
 )
 
-newtrial("Participante", 
+newTrial("Participante", 
 
         newText("<p>Bem-vindo!</p>")
         ,
@@ -30,45 +30,36 @@ newtrial("Participante",
         ,
         newTextInput("Nome")
         ,
-        newbutton("Iniciar")
+        newButton("Iniciar")
         ,
-        newvar("NOME")
+        newVar("NOME")
         .global()
-        .ser(getTextInput("Nome"))
+        .set(getTextInput("Nome"))
 )
 
 .log("NOME", getvar("NOME"))
 
-Template("Tabela_script_auditivo.csv", 
-
-        row=>newtrial("Experimento",
+Template("tabela",  row=>
+                      newTrial("Experimento",
 
                       newAudio("Audio", row.Audio)
                          play()
                       ,
 
-                      newVideo("Verbos.mp4")
+                      newVideo("Video")
                          .size(90,90)
+                         .play()
                          .print()
                       ,
 
-                      newbutton("Próximo")
-                         .log()
-                         .remove()
-                      ,
-
-                      getVideo("Verbos.mp4")
-                         .remove()
-                      ,
-
-                      newbutton("Próximo")
+                      newButton("Próximo")
                       .log()
                       .remove()
                       ,
 
                       newText("A", row.julgamentoN)
                       ,
-                      newText("A", row.julgamentoE)
+                      newText("B", row.julgamentoE)
                       ,
 
                       newCanvas("2000wn", "800vh")
