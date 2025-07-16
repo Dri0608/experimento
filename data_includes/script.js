@@ -58,11 +58,11 @@ Template("tabela.csv",  row=>
 
                       newCanvas("2000wn", "800vh")
                          .add("center at 25%", "middle at 2%", getText("julgamentoN"))
-                         .add("center at 75%, "middle at2%", getText("julgamentoE"))
+                         .add("center at 75%", "middle at2%", getText("julgamentoE"))
                          .print()
                         ,
 
-                     newselector()
+                     newSelector()
                         .add(getText("julgamentoN"), getText("julgamentoE"))
                         .keys("julgamentoN", "julgamentoE")
                         .log()
