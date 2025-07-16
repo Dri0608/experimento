@@ -38,24 +38,17 @@ newTrial("Participante",
         .set(getTextInput("Nome"))
 )
 
-.log("NOME", getvar("NOME"))
+.log("NOME", getVar("NOME"))
 
 Template("tabela.csv",  row=>
                       newTrial("Experimento",
-
-                      newAudio("Audio", row.Audio)
-                         .play()
-                      ,
-
+                               
                       newVideo("Video", row.Video)
-                         .size(90,90)
-                         .play()
+                         .size(240,240)
+                         .center()
                          .print()
-                      ,
-
-                      newButton("Próximo")
-                      .log()
-                      .remove()
+                         .play()
+                         .wait()
                       ,
 
                       newText("A", row.julgamentoN)
@@ -65,16 +58,23 @@ Template("tabela.csv",  row=>
 
                       newCanvas("2000wn", "800vh")
                          .add("center at 25%", "middle at 2%", getText("julgamentoN"))
-                         .add("center at 75%, "middle at2%", getText("julgamentoE")
+                         .add("center at 75%, "middle at2%", getText("julgamentoE"))
                          .print()
                         ,
 
                      newselector()
-                        .add(getText("julgamentoN"), getText("julgamentoE")
+                        .add(getText("julgamentoN"), getText("julgamentoE"))
                         .keys("julgamentoN", "julgamentoE")
                         .log()
                         .wait()
+                        ,
+
+                     newButton("Próximo")
+                      .log()
+                      .remove()
+                      ,
 )
+                               
 .log("Áudio", row.Audio)
 .log("Vídeo", row.Video)
 .log("NOME", getVar("NOME"))
