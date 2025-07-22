@@ -60,12 +60,9 @@ Template("tabela.csv", row =>
 
     newSelector()
       .add(getText("A"), getText("B"))
-      .keys("A", "B")
       .log()
       .wait()
-    ,
 
-    newButton("Próximo").center().print().wait()
   )
   .log("Video", row.Video)
   .log("NOME", getVar("NOME"))
